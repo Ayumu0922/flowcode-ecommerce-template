@@ -17,7 +17,7 @@ export default function ProductCard({ product, index = 0 }: { product: Product; 
         </div>
         <div className="p-4">
           <p className="text-xs text-zinc-500 mb-1">{product.category}</p>
-          <h3 className="text-sm font-semibold text-white mb-2 group-hover:text-rose-400 transition-colors">{product.name}</h3>
+          <h3 className="text-sm font-semibold text-white mb-2 group-hover:text-accent-400 transition-colors">{product.name}</h3>
           <div className="flex items-center gap-1 mb-2">
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
             <span className="text-xs text-zinc-400">{product.rating} ({product.reviews})</span>

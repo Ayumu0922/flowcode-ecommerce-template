@@ -61,7 +61,7 @@ export default function ProductDetailPage() {
                 <div className="flex gap-2">
                   {product.sizes.map((s) => (
                     <button key={s} onClick={() => setSelectedSize(s)}
-                      className={`px-4 py-2 rounded-lg text-sm border transition-colors ${selectedSize === s ? 'bg-rose-500/10 border-rose-500/50 text-rose-400' : 'border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                      className={`px-4 py-2 rounded-lg text-sm border transition-colors ${selectedSize === s ? 'bg-accent-500/10 border-accent-500/50 text-accent-400' : 'border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
                     >{s}</button>
                   ))}
                 </div>
@@ -81,7 +81,7 @@ export default function ProductDetailPage() {
             )}
             <button onClick={handleAdd}
               className={`w-full py-3.5 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 ${
-                added ? 'bg-emerald-600 text-white' : 'bg-rose-600 hover:bg-rose-500 text-white'
+                added ? 'bg-emerald-600 text-white' : 'bg-accent-600 hover:bg-accent-500 text-white'
               }`}
             >
               {added ? <><Check className="w-5 h-5" /> カートに追加しました</> : <><ShoppingCart className="w-5 h-5" /> カートに追加</>}

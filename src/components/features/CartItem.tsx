@@ -1,8 +1,19 @@
 import { Minus, Plus, Trash2 } from 'lucide-react';
 import { useCartStore, type CartItem as CartItemType } from '../../store/cartStore';
+import { useToast } from '../../components/ui/Toast';
+import { useConfirm } from '../../components/ui/ConfirmDialog';
 
 export default function CartItem({ item }: { item: CartItemType }) {
   const { updateQuantity, removeItem } = useCartStore();
+  const { showToast } = useToast();
+  const { confirm } = useConfirm();
+
+  const handleRemove = async () => {
+    const ok = await confirm({ title: '商品を削除', message: 'この商品をカートから削除しますか？', confirmLabel: '削除', variant: 'danger' });
+    if (!ok) return;
+    removeItem(item.productId);
+    showToast('商品を削除しました', 'success');
+  };
 
   return (
     <div className="flex items-center gap-4 bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
@@ -30,7 +41,7 @@ export default function CartItem({ item }: { item: CartItemType }) {
       </div>
       <div className="text-right">
         <p className="text-sm font-bold text-white">¥{(item.price * item.quantity).toLocaleString()}</p>
-        <button onClick={() => removeItem(item.productId)} className="text-zinc-500 hover:text-red-400 mt-1">
+        <button onClick={handleRemove} className="text-zinc-500 hover:text-red-400 mt-1">
           <Trash2 className="w-4 h-4" />
         </button>
       </div>
