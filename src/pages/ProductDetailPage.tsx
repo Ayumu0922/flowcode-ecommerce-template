@@ -38,7 +38,7 @@ export default function ProductDetailPage() {
     <PageTransition>
     <div className="py-12 px-6">
       <div className="max-w-5xl mx-auto">
-        <Link to="/products" className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white mb-8">
+        <Link to="/products" className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-foreground mb-8">
           <ArrowLeft className="w-4 h-4" /> 商品一覧
         </Link>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -47,13 +47,13 @@ export default function ProductDetailPage() {
           </div>
           <div>
             <p className="text-xs text-zinc-500 mb-1">{product.category}</p>
-            <h1 className="text-2xl font-bold text-white mb-2">{product.name}</h1>
+            <h1 className="text-2xl font-bold text-foreground mb-2">{product.name}</h1>
             <div className="flex items-center gap-2 mb-4">
               <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
               <span className="text-sm text-zinc-400">{product.rating} ({product.reviews}件のレビュー)</span>
             </div>
             <div className="flex items-center gap-3 mb-6">
-              <span className="text-3xl font-bold text-white">¥{product.price.toLocaleString()}</span>
+              <span className="text-3xl font-bold text-foreground">¥{product.price.toLocaleString()}</span>
               {product.originalPrice && <span className="text-lg text-zinc-500 line-through">¥{product.originalPrice.toLocaleString()}</span>}
             </div>
             <p className="text-sm text-zinc-400 leading-relaxed mb-6">{product.description}</p>
@@ -83,7 +83,7 @@ export default function ProductDetailPage() {
             )}
             <button onClick={handleAdd}
               className={`w-full py-3.5 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 ${
-                added ? 'bg-emerald-600 text-white' : 'bg-accent-600 hover:bg-accent-500 text-white'
+                added ? 'bg-emerald-600 text-on-accent' : 'bg-accent-600 hover:bg-accent-500 text-on-accent'
               }`}
             >
               {added ? <><Check className="w-5 h-5" /> カートに追加しました</> : <><ShoppingCart className="w-5 h-5" /> カートに追加</>}
@@ -92,7 +92,7 @@ export default function ProductDetailPage() {
         </motion.div>
         {related.length > 0 && (
           <div className="mt-16">
-            <h2 className="text-xl font-bold text-white mb-6">関連商品</h2>
+            <h2 className="text-xl font-bold text-foreground mb-6">関連商品</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {related.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
             </div>

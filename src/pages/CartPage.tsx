@@ -23,7 +23,7 @@ export default function CartPage() {
   if (items.length === 0) {
     return (
       <PageTransition>
-      <EmptyState icon={ShoppingCart} title="カートは空です" description="商品を追加してお買い物を始めましょう" action={<Link to="/products" className="inline-flex items-center gap-2 px-4 py-2 bg-accent-600 hover:bg-accent-500 text-white text-sm font-medium rounded-lg transition-colors">商品を見る</Link>} />
+      <EmptyState icon={ShoppingCart} title="カートは空です" description="商品を追加してお買い物を始めましょう" action={<Link to="/products" className="inline-flex items-center gap-2 px-4 py-2 bg-accent-600 hover:bg-accent-500 text-on-accent text-sm font-medium rounded-lg transition-colors">商品を見る</Link>} />
       </PageTransition>
     );
   }
@@ -32,27 +32,27 @@ export default function CartPage() {
     <PageTransition>
     <div className="py-12 px-6">
       <div className="max-w-3xl mx-auto">
-        <Link to="/products" className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white mb-6">
+        <Link to="/products" className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-foreground mb-6">
           <ArrowLeft className="w-4 h-4" /> 買い物を続ける
         </Link>
-        <h1 className="text-2xl font-bold text-white mb-6">カート ({items.length}アイテム)</h1>
+        <h1 className="text-2xl font-bold text-foreground mb-6">カート ({items.length}アイテム)</h1>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3 mb-6">
           {items.map((item) => <CartItem key={item.productId} item={item} />)}
         </motion.div>
         <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 space-y-3">
           <div className="flex justify-between text-sm">
             <span className="text-zinc-400">小計</span>
-            <span className="text-white">¥{totalPrice().toLocaleString()}</span>
+            <span className="text-foreground">¥{totalPrice().toLocaleString()}</span>
           </div>
           <div className="flex justify-between text-sm">
             <span className="text-zinc-400">配送料</span>
-            <span className="text-white">{totalPrice() >= 5000 ? '無料' : '¥500'}</span>
+            <span className="text-foreground">{totalPrice() >= 5000 ? '無料' : '¥500'}</span>
           </div>
           <div className="border-t border-zinc-800 pt-3 flex justify-between">
-            <span className="text-base font-semibold text-white">合計</span>
-            <span className="text-xl font-bold text-white">¥{(totalPrice() + (totalPrice() >= 5000 ? 0 : 500)).toLocaleString()}</span>
+            <span className="text-base font-semibold text-foreground">合計</span>
+            <span className="text-xl font-bold text-foreground">¥{(totalPrice() + (totalPrice() >= 5000 ? 0 : 500)).toLocaleString()}</span>
           </div>
-          <button className="w-full bg-accent-600 hover:bg-accent-500 text-white py-3.5 rounded-xl font-semibold transition-colors mt-2">
+          <button className="w-full bg-accent-600 hover:bg-accent-500 text-on-accent py-3.5 rounded-xl font-semibold transition-colors mt-2">
             レジに進む
           </button>
           <button onClick={handleClearCart} className="w-full text-sm text-zinc-500 hover:text-zinc-300 py-2 transition-colors">

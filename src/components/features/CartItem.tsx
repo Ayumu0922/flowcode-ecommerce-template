@@ -21,26 +21,26 @@ export default function CartItem({ item }: { item: CartItemType }) {
         {item.image}
       </div>
       <div className="flex-1 min-w-0">
-        <h3 className="text-sm font-semibold text-white truncate">{item.name}</h3>
+        <h3 className="text-sm font-semibold text-foreground truncate">{item.name}</h3>
         <div className="flex items-center gap-2 text-xs text-zinc-500 mt-0.5">
           {item.size && <span>サイズ: {item.size}</span>}
           {item.color && <span>カラー: {item.color}</span>}
         </div>
-        <p className="text-sm font-bold text-white mt-1">¥{item.price.toLocaleString()}</p>
+        <p className="text-sm font-bold text-foreground mt-1">¥{item.price.toLocaleString()}</p>
       </div>
       <div className="flex items-center gap-2">
         <button onClick={() => updateQuantity(item.productId, item.quantity - 1)}
-          className="w-8 h-8 rounded-lg bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white">
+          className="w-8 h-8 rounded-lg bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-zinc-400 hover:text-foreground">
           <Minus className="w-3.5 h-3.5" />
         </button>
-        <span className="w-8 text-center text-sm text-white">{item.quantity}</span>
+        <span className="w-8 text-center text-sm text-foreground">{item.quantity}</span>
         <button onClick={() => updateQuantity(item.productId, item.quantity + 1)}
-          className="w-8 h-8 rounded-lg bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white">
+          className="w-8 h-8 rounded-lg bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-zinc-400 hover:text-foreground">
           <Plus className="w-3.5 h-3.5" />
         </button>
       </div>
       <div className="text-right">
-        <p className="text-sm font-bold text-white">¥{(item.price * item.quantity).toLocaleString()}</p>
+        <p className="text-sm font-bold text-foreground">¥{(item.price * item.quantity).toLocaleString()}</p>
         <button onClick={handleRemove} className="text-zinc-500 hover:text-red-400 mt-1">
           <Trash2 className="w-4 h-4" />
         </button>

@@ -22,7 +22,7 @@ export default function ProductsPage() {
     <PageTransition>
     <div className="py-12 px-6">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-2xl font-bold text-white mb-6">商品一覧</h1>
+        <h1 className="text-2xl font-bold text-foreground mb-6">商品一覧</h1>
         <div className="mb-6"><SearchBar value={search} onChange={setSearch} /></div>
         <div className="flex gap-8">
           <FilterSidebar selectedCategory={category} onCategoryChange={setCategory} sortBy={sortBy} onSortChange={setSortBy} />

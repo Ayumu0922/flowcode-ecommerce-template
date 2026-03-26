@@ -15,7 +15,7 @@ export default function HomePage() {
       <HeroBanner />
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-6">カテゴリ</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">カテゴリ</h2>
           <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
             {categoryShowcase.map((c) => <CategoryCard key={c.name} {...c} />)}
           </div>
@@ -24,7 +24,7 @@ export default function HomePage() {
       <section className="py-16 px-6 bg-zinc-900/20">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">注目アイテム</h2>
+            <h2 className="text-2xl font-bold text-foreground">注目アイテム</h2>
             <Link to="/products" className="text-sm text-accent-400 hover:text-accent-300 flex items-center gap-1">すべて見る <ArrowRight className="w-3.5 h-3.5" /></Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
