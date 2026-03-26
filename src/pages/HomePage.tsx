@@ -1,3 +1,4 @@
+import PageTransition from '../components/ui/PageTransition';
 import HeroBanner from '../components/features/HeroBanner';
 import ProductCard from '../components/features/ProductCard';
 import CategoryCard from '../components/features/CategoryCard';
@@ -10,7 +11,7 @@ export default function HomePage() {
   const featured = products.filter((p) => p.badge);
 
   return (
-    <>
+    <PageTransition>
       <HeroBanner />
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
@@ -31,6 +32,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 }

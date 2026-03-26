@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Star, ShoppingCart, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
+import PageTransition from '../components/ui/PageTransition';
 import { products } from '../data/products';
 import { useCartStore } from '../store/cartStore';
 import ProductCard from '../components/features/ProductCard';
@@ -34,6 +35,7 @@ export default function ProductDetailPage() {
   };
 
   return (
+    <PageTransition>
     <div className="py-12 px-6">
       <div className="max-w-5xl mx-auto">
         <Link to="/products" className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white mb-8">
@@ -98,5 +100,6 @@ export default function ProductDetailPage() {
         )}
       </div>
     </div>
+    </PageTransition>
   );
 }

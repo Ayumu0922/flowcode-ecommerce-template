@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PageTransition from '../components/ui/PageTransition';
 import { products } from '../data/products';
 import ProductGrid from '../components/features/ProductGrid';
 import SearchBar from '../components/features/SearchBar';
@@ -18,6 +19,7 @@ export default function ProductsPage() {
   if (sortBy === 'rating') filtered = [...filtered].sort((a, b) => b.rating - a.rating);
 
   return (
+    <PageTransition>
     <div className="py-12 px-6">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-2xl font-bold text-white mb-6">商品一覧</h1>
@@ -28,5 +30,6 @@ export default function ProductsPage() {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 }
